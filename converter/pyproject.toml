@@ -16,6 +16,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project.scripts]
+convert-dotlan-sql = 'lanpartydb_converter.inputs.dotlan.main:main'
 
 [tool.rye]
 managed = true

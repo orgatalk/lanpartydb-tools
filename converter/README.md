@@ -3,6 +3,8 @@
 
 ## Supported input formats
 
+* [DOTLAN Intranet](https://intranet.dotlan.net/) SQL dump
+
 
 ## License
 
