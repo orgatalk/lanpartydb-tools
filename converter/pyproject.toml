@@ -1,0 +1,38 @@
+[project]
+name = "lanpartydb-converter"
+version = "0.1.0"
+description = "Converter for the OrgaTalk LANparty Database"
+authors = [
+    { name = "Jochen Kupperschmidt", email = "homework@nwsnet.de" }
+]
+dependencies = [
+    "tomlkit>=0.12.3",
+]
+readme = "README.md"
+requires-python = ">= 3.11"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lanpartydb_converter"]
+
+[tool.ruff.format]
+quote-style = "single"
+line-ending = "lf"
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-sort-within-sections = true
+lines-after-imports = 2
+order-by-type = false
