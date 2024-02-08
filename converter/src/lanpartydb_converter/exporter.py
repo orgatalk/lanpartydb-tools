@@ -19,6 +19,9 @@ from .models import Party
 
 def export_party(party: Party, output_path: Path) -> Path:
     """Export party to TOML file."""
+    # Output path should not exist yet. Raise exception if it does.
+    output_path.mkdir()
+
     filename = output_path / f'{party.slug}.toml'
 
     output_data = _party_to_sparse_dict(party)
