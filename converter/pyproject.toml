@@ -6,6 +6,8 @@ authors = [
     { name = "Jochen Kupperschmidt", email = "homework@nwsnet.de" }
 ]
 dependencies = [
+    "pydantic>=2.6.1",
+    "pydantic-xml>=2.9.0",
     "tomlkit>=0.12.3",
 ]
 readme = "README.md"
@@ -17,6 +19,7 @@ build-backend = "hatchling.build"
 
 [project.scripts]
 convert-dotlan-sql = 'lanpartydb_converter.inputs.dotlan.main:main'
+convert-lansuite-xml = 'lanpartydb_converter.inputs.lansuite.xml.main:main'
 
 [tool.rye]
 managed = true
