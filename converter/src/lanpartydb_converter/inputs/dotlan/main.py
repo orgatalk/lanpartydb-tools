@@ -11,7 +11,7 @@ DOTLAN Intranet entry point
 from argparse import ArgumentParser
 from pathlib import Path
 
-from lanpartydb_converter.exporter import export_party
+from lanpartydb_converter.exporter import export_parties
 
 from .loader import load_parties
 
@@ -28,5 +28,4 @@ def main() -> None:
     args = parse_args()
 
     parties = load_parties(args.sql_filename, args.base_url)
-    for party in parties:
-        export_party(party, args.output_path)
+    export_parties(parties, args.output_path)

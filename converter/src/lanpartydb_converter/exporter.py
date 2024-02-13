@@ -17,6 +17,12 @@ import tomlkit
 from .models import Party
 
 
+def export_parties(parties: list[Party], output_path: Path) -> Path:
+    """Export parties to separate TOML files."""
+    for party in parties:
+        export_party(party, output_path)
+
+
 def export_party(party: Party, output_path: Path) -> Path:
     """Export party to TOML file."""
     # Output path should not exist yet. Raise exception if it does.
