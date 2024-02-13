@@ -4,7 +4,7 @@
 ## Supported input formats
 
 * [DOTLAN Intranet](https://intranet.dotlan.net/) SQL dump
-- [LANsuite](https://github.com/lansuite/lansuite) XML
+* [LANsuite](https://github.com/lansuite/lansuite) XML
 
 
 ## Usage
