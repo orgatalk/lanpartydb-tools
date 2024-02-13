@@ -9,6 +9,7 @@ Data exporter
 """
 
 import dataclasses
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -21,6 +22,10 @@ def export_parties(parties: list[Party], output_path: Path) -> Path:
     """Export parties to separate TOML files."""
     # Output path should not exist yet. Raise exception if it does.
     output_path.mkdir()
+
+    # Skip parties that are not in the past.
+    today = date.today()
+    parties = [party for party in parties if party.end_on < today]
 
     for party in parties:
         export_party(party, output_path)
