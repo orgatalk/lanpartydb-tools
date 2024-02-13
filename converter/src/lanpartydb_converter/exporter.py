@@ -49,5 +49,7 @@ def _remove_none_values(d: dict[str, Any]) -> dict[str, Any]:
     for k, v in list(d.items()):
         if v is None:
             del d[k]
+        elif isinstance(v, dict):
+            _remove_none_values(v)
 
     return d
