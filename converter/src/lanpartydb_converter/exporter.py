@@ -39,9 +39,15 @@ def export_party(party: Party, output_path: Path) -> Path:
 def _party_to_sparse_dict(party: Party) -> dict[str, Any]:
     data = dataclasses.asdict(party)
 
-    # Remove `None` values.
-    for k, v in list(data.items()):
-        if v is None:
-            del data[k]
+    _remove_none_values(data)
 
     return data
+
+
+def _remove_none_values(d: dict[str, Any]) -> dict[str, Any]:
+    """Remove `None` values from first level of dictionary."""
+    for k, v in list(d.items()):
+        if v is None:
+            del d[k]
+
+    return d
