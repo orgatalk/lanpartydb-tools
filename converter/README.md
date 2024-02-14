@@ -14,7 +14,12 @@
 * Enter converter path: `cd lanpartydb-tools/converter`
 * Setup project including dependencies: `rye sync`
 * Run converter:
-  * For DOTLAN: `rye run convert-dotlan-sql --base-url 'https://www.lanparty.example' --output-path build events-and-locations.sql`
+  * For DOTLAN: `rye run convert-dotlan-sql --base-url 'https://www.lanparty.example' --output-path output events-and-locations.sql`
+    * Export tables `events` and `event_location` (both structure and
+      data, without compression) from the DOTLAN "Support Tools"
+  * For LANsuite: `rye run convert-lansuite-xml --output-path output infos.xml`
+    * The XML document with parties is publicly available at
+      `https://www.yourparty.example/ext_inc/party_infos/infos.xml`.
 
 
 ## License
