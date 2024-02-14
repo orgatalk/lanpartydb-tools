@@ -38,18 +38,19 @@ def _select_parties_in_past(parties: list[Party]) -> list[Party]:
 def export_party(party: Party, output_path: Path) -> Path:
     """Export party to TOML file."""
     filename = output_path / f'{party.slug}.toml'
+    content = serialize_party(party)
+    filename.write_text(content)
 
-    output_data = _party_to_sparse_dict(party)
 
-    with filename.open('w') as f:
-        tomlkit.dump(output_data, f)
+def serialize_party(party: Party) -> str:
+    """Serialize party to TOML document."""
+    sparse_dict = _party_to_sparse_dict(party)
+    return tomlkit.dumps(sparse_dict)
 
 
 def _party_to_sparse_dict(party: Party) -> dict[str, Any]:
     data = dataclasses.asdict(party)
-
     _remove_none_values(data)
-
     return data
 
 
