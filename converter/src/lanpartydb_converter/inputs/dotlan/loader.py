@@ -6,7 +6,7 @@ DOTLAN Intranet data loader (SQLite-based)
 
 Expects an SQL dump of the DOTLAN database that includes both `CREATE
 TABLE` as well as `INSERT INTO` statements for tables `events` and
-`event_location`.s
+`event_location`.
 
 To create it from the DOTLAN admin:
 
