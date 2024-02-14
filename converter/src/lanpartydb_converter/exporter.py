@@ -23,12 +23,16 @@ def export_parties(parties: list[Party], output_path: Path) -> Path:
     # Output path should not exist yet. Raise exception if it does.
     output_path.mkdir()
 
-    # Skip parties that are not in the past.
-    today = date.today()
-    parties = [party for party in parties if party.end_on < today]
+    parties = _select_parties_in_past(parties)
 
     for party in parties:
         export_party(party, output_path)
+
+
+def _select_parties_in_past(parties: list[Party]) -> list[Party]:
+    """Return only parties that happened in the past."""
+    today = date.today()
+    return [party for party in parties if party.end_on < today]
 
 
 def export_party(party: Party, output_path: Path) -> Path:
