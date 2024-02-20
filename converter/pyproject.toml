@@ -12,6 +12,7 @@ dependencies = [
 ]
 readme = "README.md"
 requires-python = ">= 3.11"
+license = { text = "MIT" }
 
 [project.scripts]
 convert-dotlan-sql = 'lanpartydb_converter.inputs.dotlan.main:main'
