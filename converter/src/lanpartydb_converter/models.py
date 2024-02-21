@@ -8,6 +8,7 @@ Data models
 :License: MIT
 """
 
+from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import date
 
@@ -17,6 +18,19 @@ class Series:
     slug: str
     name: str
     alternative_names: set[str] = field(default_factory=set)
+
+
+@dataclass(frozen=True, kw_only=True)
+class Party:
+    slug: str
+    title: str
+    series_slug: str | None = field(kw_only=True, default=None)
+    organizer_entity: str | None = field(kw_only=True, default=None)
+    start_on: date
+    end_on: date
+    seats: int | None = None
+    location: Location | None = None
+    links: Links | None = None
 
 
 @dataclass(frozen=True)
@@ -31,16 +45,3 @@ class Location:
 @dataclass(frozen=True)
 class Links:
     website: str | None
-
-
-@dataclass(frozen=True, kw_only=True)
-class Party:
-    slug: str
-    title: str
-    series_slug: str | None = field(kw_only=True, default=None)
-    organizer_entity: str | None = field(kw_only=True, default=None)
-    start_on: date
-    end_on: date
-    seats: int | None = None
-    location: Location | None = None
-    links: Links | None = None
