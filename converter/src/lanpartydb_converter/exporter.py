@@ -50,16 +50,16 @@ def serialize_party(party: Party) -> str:
 
 def _party_to_sparse_dict(party: Party) -> dict[str, Any]:
     data = dataclasses.asdict(party)
-    _remove_none_values(data)
+    _remove_default_values(data)
     return data
 
 
-def _remove_none_values(d: dict[str, Any]) -> dict[str, Any]:
+def _remove_default_values(d: dict[str, Any]) -> dict[str, Any]:
     """Remove `None` values from first level of dictionary."""
     for k, v in list(d.items()):
-        if v is None:
+        if (v is None) or (v is False):
             del d[k]
         elif isinstance(v, dict):
-            _remove_none_values(v)
+            _remove_default_values(v)
 
     return d
