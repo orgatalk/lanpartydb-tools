@@ -40,7 +40,7 @@ class Location:
     country_code: str
     city: str
     zip_code: str | None
-    street: str | None = field(kw_only=True, default=None)
+    street: str | None
 
 
 @dataclass(frozen=True)
