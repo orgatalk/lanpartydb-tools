@@ -39,8 +39,8 @@ class Location:
     name: str | None = field(kw_only=True, default=None)
     country_code: str
     city: str
-    zip_code: str | None
-    street: str | None
+    zip_code: str | None = None
+    street: str | None = None
 
 
 @dataclass(frozen=True)
