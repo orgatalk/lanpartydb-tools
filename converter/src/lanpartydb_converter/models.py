@@ -11,6 +11,7 @@ Data models
 from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import date
+from decimal import Decimal
 
 
 @dataclass(frozen=True)
@@ -41,6 +42,8 @@ class Location:
     city: str
     zip_code: str | None = None
     street: str | None = None
+    latitude: Decimal | None = None
+    longitude: Decimal | None = None
 
 
 @dataclass(frozen=True)
