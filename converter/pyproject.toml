@@ -1,7 +1,7 @@
 [project]
 name = "lanpartydb-converter"
 version = "0.1.0"
-description = "Converter for the OrgaTalk LANparty Database"
+description = "Converter for the OrgaTalk LAN Party Database"
 authors = [
     { name = "Jochen Kupperschmidt", email = "homework@nwsnet.de" }
 ]

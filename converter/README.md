@@ -1,4 +1,4 @@
-# Converter for the OrgaTalk LANparty Database
+# Converter for the OrgaTalk LAN Party Database
 
 
 ## Supported input formats
