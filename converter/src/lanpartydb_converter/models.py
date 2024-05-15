@@ -30,6 +30,7 @@ class Party:
     start_on: date
     end_on: date
     seats: int | None = None
+    attendees: int | None = None
     online: bool | None = False
     location: Location | None = None
     links: Links | None = None
