@@ -6,11 +6,21 @@
 #   features: []
 #   all-features: false
 #   with-sources: false
+#   generate-hashes: false
 
 -e file:.
 annotated-types==0.6.0
+    # via pydantic
 pydantic==2.6.1
+    # via lanpartydb-converter
+    # via pydantic-xml
 pydantic-core==2.16.2
+    # via pydantic
+    # via pydantic-xml
 pydantic-xml==2.9.0
+    # via lanpartydb-converter
 tomlkit==0.12.3
+    # via lanpartydb-converter
 typing-extensions==4.9.0
+    # via pydantic
+    # via pydantic-core
