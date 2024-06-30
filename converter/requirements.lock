@@ -19,7 +19,7 @@ pydantic==2.7.4
 pydantic-core==2.18.4
     # via pydantic
     # via pydantic-xml
-pydantic-xml==2.9.0
+pydantic-xml==2.11.0
     # via lanpartydb-converter
 tomlkit==0.12.3
     # via lanpartydb-converter
