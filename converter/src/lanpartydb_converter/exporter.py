@@ -44,7 +44,6 @@ def export_party(party: Party, output_path: Path) -> Path:
 def serialize_party(party: Party) -> str:
     """Serialize party to TOML document."""
     party_dict = _party_to_sparse_dict(party)
-    _handle_links(party_dict)
     return tomlkit.dumps(party_dict)
 
 
@@ -63,18 +62,3 @@ def _remove_default_values(d: dict[str, Any]) -> dict[str, Any]:
             _remove_default_values(v)
 
     return d
-
-
-def _handle_links(party_dict: dict[str, Any]):
-    links_dict = party_dict.pop('links')
-    if links_dict:
-        website_dict = links_dict.pop('website', None)
-        if website_dict:
-            offline = website_dict.get('offline', False)
-            if offline:
-                website_dict['offline'] = offline
-                website = website_dict
-            else:
-                website = website_dict['url']
-            links_dict['website'] = website
-            party_dict['links'] = links_dict
