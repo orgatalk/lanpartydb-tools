@@ -13,10 +13,10 @@ annotated-types==0.6.0
     # via pydantic
 lanpartydb==0.5.0
     # via lanpartydb-converter
-pydantic==2.6.1
+pydantic==2.7.4
     # via lanpartydb-converter
     # via pydantic-xml
-pydantic-core==2.16.2
+pydantic-core==2.18.4
     # via pydantic
     # via pydantic-xml
 pydantic-xml==2.9.0

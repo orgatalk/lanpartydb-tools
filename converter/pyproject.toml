@@ -7,7 +7,7 @@ authors = [
 ]
 dependencies = [
     "lanpartydb>=0.5.0",
-    "pydantic>=2.6.1",
+    "pydantic>=2.7.4",
     "pydantic-xml>=2.9.0",
     "tomlkit>=0.12.3",
 ]
