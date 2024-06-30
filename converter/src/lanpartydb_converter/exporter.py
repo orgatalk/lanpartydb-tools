@@ -13,9 +13,8 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from lanpartydb.models import Party
 import tomlkit
-
-from .models import Party
 
 
 def export_parties(parties: list[Party], output_path: Path) -> Path:

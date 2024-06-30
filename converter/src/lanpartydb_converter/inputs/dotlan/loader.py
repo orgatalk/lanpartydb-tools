@@ -23,7 +23,7 @@ from datetime import date, datetime
 from pathlib import Path
 import sqlite3
 
-from lanpartydb_converter.models import Links, Location, Party, Resource
+from lanpartydb.models import Links, Location, Party, Resource
 
 
 def load_parties(sql_filename: Path, base_url: str) -> list[Party]:

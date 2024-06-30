@@ -13,7 +13,7 @@ An XML document with parties is publicly available at
 
 from pathlib import Path
 
-from lanpartydb_converter.models import Links, Location, Party, Resource
+from lanpartydb.models import Links, Location, Party, Resource
 
 from .models import Lansuite, Party as LansuiteParty
 

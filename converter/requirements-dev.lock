@@ -11,6 +11,8 @@
 -e file:.
 annotated-types==0.6.0
     # via pydantic
+lanpartydb==0.4.0
+    # via lanpartydb-converter
 pydantic==2.6.1
     # via lanpartydb-converter
     # via pydantic-xml
