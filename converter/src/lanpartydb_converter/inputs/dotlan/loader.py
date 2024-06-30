@@ -23,7 +23,7 @@ from datetime import date, datetime
 from pathlib import Path
 import sqlite3
 
-from lanpartydb_converter.models import Links, Location, Party
+from lanpartydb_converter.models import Links, Location, Party, Resource
 
 
 def load_parties(sql_filename: Path, base_url: str) -> list[Party]:
@@ -101,7 +101,7 @@ def _build_party(row, base_url: str) -> Party:
             street=row['street'],
         ),
         links=Links(
-            website=f'{base_url}/party/{party_id}',
+            website=Resource(url=f'{base_url}/party/{party_id}'),
         ),
     )
 

@@ -13,7 +13,7 @@ An XML document with parties is publicly available at
 
 from pathlib import Path
 
-from lanpartydb_converter.models import Links, Location, Party
+from lanpartydb_converter.models import Links, Location, Party, Resource
 
 from .models import Lansuite, Party as LansuiteParty
 
@@ -22,22 +22,22 @@ def load_parties(filename: Path) -> list[Party]:
     xml = filename.read_text()
     lansuite = Lansuite.from_xml(xml)
 
-    website = str(lansuite.system.link)
+    website_url = str(lansuite.system.link)
 
     return [
-        _build_party(lansuite_party, website=website)
+        _build_party(lansuite_party, website_url)
         for lansuite_party in lansuite.partys.partys
     ]
 
 
-def _build_party(lansuite_party: LansuiteParty, *, website: str) -> Party:
+def _build_party(lansuite_party: LansuiteParty, *, website_url: str) -> Party:
     location = Location(
         country_code='de',
         city=lansuite_party.ort,
         zip_code=lansuite_party.plz,
     )
 
-    links = Links(website=website)
+    links = Links(website=Resource(url=website_url))
 
     return Party(
         slug=lansuite_party.partyid,

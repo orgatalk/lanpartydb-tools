@@ -49,4 +49,10 @@ class Location:
 
 @dataclass(frozen=True)
 class Links:
-    website: str | None
+    website: Resource | None
+
+
+@dataclass(frozen=True)
+class Resource:
+    url: str
+    offline: bool = False
