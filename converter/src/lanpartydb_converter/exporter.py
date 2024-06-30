@@ -8,13 +8,11 @@ Data exporter
 :License: MIT
 """
 
-import dataclasses
 from datetime import date
 from pathlib import Path
-from typing import Any
 
 from lanpartydb.models import Party
-import tomlkit
+from lanpartydb.writing import serialize_party
 
 
 def export_parties(parties: list[Party], output_path: Path) -> Path:
@@ -39,26 +37,3 @@ def export_party(party: Party, output_path: Path) -> Path:
     filename = output_path / f'{party.slug}.toml'
     content = serialize_party(party)
     filename.write_text(content)
-
-
-def serialize_party(party: Party) -> str:
-    """Serialize party to TOML document."""
-    party_dict = _party_to_sparse_dict(party)
-    return tomlkit.dumps(party_dict)
-
-
-def _party_to_sparse_dict(party: Party) -> dict[str, Any]:
-    data = dataclasses.asdict(party)
-    _remove_default_values(data)
-    return data
-
-
-def _remove_default_values(d: dict[str, Any]) -> dict[str, Any]:
-    """Remove `None` values from first level of dictionary."""
-    for k, v in list(d.items()):
-        if (v is None) or (v is False):
-            del d[k]
-        elif isinstance(v, dict):
-            _remove_default_values(v)
-
-    return d
